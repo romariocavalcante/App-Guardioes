@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "guardioes-contra-dengue",
   "builds": [
     {
       "src": "package.json",
@@ -12,74 +11,9 @@
   ],
   "routes": [
     {
-      "src": "/sw.js",
-      "headers": {
-        "cache-control": "s-maxage=0"
-      }
-    },
-    {
-      "src": "/manifest.json",
-      "headers": {
-        "cache-control": "s-maxage=0"
-      }
-    },
-    {
-      "src": "/icons/(.*)",
-      "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "cache-control": "public, max-age=0, must-revalidate"
-      }
+      "dest": "/index.html"
     }
-  ],
-  "headers": [
-    {
-      "source": "/sw.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        {
-          "key": "Service-Worker-Allowed",
-          "value": "/"
-        }
-      ]
-    },
-    {
-      "source": "/manifest.json",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        {
-          "key": "Content-Type",
-          "value": "application/manifest+json"
-        }
-      ]
-    },
-    {
-      "source": "/icons/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ],
-  "functions": {
-    "api/notifications.js": {
-      "maxDuration": 10
-    }
-  },
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
+
