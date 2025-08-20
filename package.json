@@ -1,12 +1,16 @@
 {
-    "name": "web-app",
+    "name": "guardioes-contra-dengue",
     "type": "module",
-    "version": "0.0.0",
+    "version": "1.0.0",
+    "description": "Aplicativo educativo PWA de prevenção da dengue para Canaã dos Carajás",
     "private": true,
     "scripts": {
       "dev": "vite",
-      "build": "node tools/generate-llms.js || true && vite build",
-      "preview": "vite preview"
+      "build": "node scripts/generate-icons.js && vite build",
+      "preview": "vite preview",
+      "pwa:icons": "node scripts/generate-icons.js",
+      "pwa:test": "npm run build && npx serve dist",
+      "pwa:lighthouse": "npx lighthouse http://localhost:3000 --view --output=html --output-path=./lighthouse-report.html"
     },
     "dependencies": {
       "@radix-ui/react-alert-dialog": "^1.0.5",
@@ -49,5 +53,22 @@
       "eslint": "^8.57.1",
       "eslint-config-react-app": "^7.0.1",
       "vite-plugin-svgr": "^4.2.0"
-    }
+    },
+    "keywords": [
+      "pwa",
+      "react",
+      "vite",
+      "dengue",
+      "educação",
+      "saúde",
+      "mobile",
+      "offline"
+    ],
+    "author": "Equipe de Desenvolvimento - Canaã dos Carajás",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/seu-usuario/guardioes-contra-dengue.git"
+    },
+    "homepage": "https://guardioes-dengue.vercel.app"
   }

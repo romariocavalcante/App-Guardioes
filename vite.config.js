@@ -10,4 +10,20 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['framer-motion', 'lucide-react'],
+          three: ['@react-three/fiber', '@react-three/drei', 'three']
+        }
+      }
+    }
+  },
+  server: {
+    headers: {
+      'Service-Worker-Allowed': '/'
+    }
+  }
 })
