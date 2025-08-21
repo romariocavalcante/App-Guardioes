@@ -19,11 +19,16 @@ export default defineConfig({
           three: ['@react-three/fiber', '@react-three/drei', 'three']
         }
       }
-    }
+    },
+    assetsInlineLimit: 0,
+    chunkSizeWarningLimit: 1000
   },
   server: {
     headers: {
       'Service-Worker-Allowed': '/'
     }
+  },
+  define: {
+    'process.env.NODE_ENV': '"production"'
   }
 })
